@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Squares, primes and the numerical stratosphere | Mathistopheles</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="http://www.mathistopheles.co.uk/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://www.mathistopheles.co.uk/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Mathistopheles &raquo; Feed" href="http://www.mathistopheles.co.uk/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Mathistopheles &raquo; Comments Feed" href="http://www.mathistopheles.co.uk/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Mathistopheles &raquo; Squares, primes and the numerical stratosphere Comments Feed" href="http://www.mathistopheles.co.uk/maths/a-nice-little-number-theory-problem/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.mathistopheles.co.uk\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='http://www.mathistopheles.co.uk/wp-includes/css/dist/block-library/style.min.css?ver=5.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='http://www.mathistopheles.co.uk/wp-includes/css/dist/block-library/theme.min.css?ver=5.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='http://www.mathistopheles.co.uk/wp-content/themes/twentytwelve/style.css?ver=5.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-block-style-css'  href='http://www.mathistopheles.co.uk/wp-content/themes/twentytwelve/css/blocks.css?ver=20181018' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='http://www.mathistopheles.co.uk/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://www.mathistopheles.co.uk/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://www.mathistopheles.co.uk/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://www.mathistopheles.co.uk/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.mathistopheles.co.uk/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.mathistopheles.co.uk/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel="canonical" href="http://www.mathistopheles.co.uk/maths/a-nice-little-number-theory-problem/" />
+<link rel='shortlink' href='http://www.mathistopheles.co.uk/?p=293' />
+<link rel="alternate" type="application/json+oembed" href="http://www.mathistopheles.co.uk/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.mathistopheles.co.uk%2Fmaths%2Fa-nice-little-number-theory-problem%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.mathistopheles.co.uk/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.mathistopheles.co.uk%2Fmaths%2Fa-nice-little-number-theory-problem%2F&#038;format=xml" />
+<script src='http://blogweb.casa.ucl.ac.uk/?dm=f6ef528008fbeb07b44f7ed4e5ebf098&amp;action=load&amp;blogid=43&amp;siteid=1&amp;t=809378329&amp;back=http%3A%2F%2Fwww.mathistopheles.co.uk%2Fmaths%2Fa-nice-little-number-theory-problem%2F' type='text/javascript'></script>	<style type="text/css" id="twentytwelve-header-css">
+			.site-header h1 a,
+		.site-header h2 {
+			color: #000000;
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+		<style type="text/css" id="wp-custom-css">
+			.page .entry-content img {
+	box-shadow: none;
+}
+
+.post .entry-content img {
+	box-shadow: none;
+}		</style>
+	</head>
+
+<body class="page-template-default page page-id-293 page-child parent-pageid-38 custom-background wp-embed-responsive custom-background-white custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="http://www.mathistopheles.co.uk/" title="Mathistopheles" rel="home">Mathistopheles</a></h1>
+			<h2 class="site-description">Thomas Oléron Evans: Writing, Maths, Puzzles</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="menu-menu-1-container"><ul id="menu-menu-1" class="nav-menu"><li id="menu-item-1818" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1818"><a href="http://mathistopheles.blogweb.casa.ucl.ac.uk/">Home</a></li>
+<li id="menu-item-1833" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1833"><a href="http://www.mathistopheles.co.uk/writing-2/">Writing</a>
+<ul class="sub-menu">
+	<li id="menu-item-2060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2060"><a href="http://www.mathistopheles.co.uk/writing-2/the-little-written-podcast-interviews-with-writers/">Little Written Podcast</a></li>
+	<li id="menu-item-1839" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1839"><a href="http://www.mathistopheles.co.uk/writing-2/writing-diary/">Writing Blog</a></li>
+	<li id="menu-item-1840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1840"><a href="http://www.mathistopheles.co.uk/writing-2/reviews/">Reviews</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2063"><a href="http://www.mathistopheles.co.uk/writing-2/reviews/review-nightfall-one-1971-isaac-asimov/">Review: <em>Nightfall One</em> (1971), Isaac Asimov</a></li>
+		<li id="menu-item-1841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1841"><a href="http://www.mathistopheles.co.uk/writing-2/reviews/preview-an-adventure-in-space-and-time/">TV Preview: An Adventure in Space and Time</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1834" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1834"><a href="http://www.mathistopheles.co.uk/writing-2/writing/">Audio Drama</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1835" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1835"><a href="http://www.mathistopheles.co.uk/writing-2/writing/i-wanted-to-be-useful/">Audio Drama: I wanted to be useful…</a></li>
+		<li id="menu-item-1836" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1836"><a href="http://www.mathistopheles.co.uk/writing-2/writing/audio-drama-the-final-act/">Audio Drama: The Final Act</a></li>
+		<li id="menu-item-1837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1837"><a href="http://www.mathistopheles.co.uk/writing-2/writing/christmas-presents/">Audio Drama: Christmas Presents</a></li>
+		<li id="menu-item-1838" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1838"><a href="http://www.mathistopheles.co.uk/writing-2/writing/audio-drama-writer-interview-you-like-this/">Audio Drama: Writer Interview – You like this</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2653" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2653"><a href="http://www.mathistopheles.co.uk/writing-2/an-everyday-apocalypse-writer-thomas-oleron-evans/">An Everyday Apocalypse</a></li>
+</ul>
+</li>
+<li id="menu-item-1821" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1821"><a href="http://www.mathistopheles.co.uk/maths/">Mathematical Musings</a>
+<ul class="sub-menu">
+	<li id="menu-item-3075" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3075"><a href="http://www.mathistopheles.co.uk/maths/even-more-secret-santa/">Secreter Santa…</a></li>
+	<li id="menu-item-2984" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2984"><a href="http://www.mathistopheles.co.uk/maths/understanding-an-abused-unit-the-kilometre-hour/">Understanding an abused unit: The kilometre hour</a></li>
+	<li id="menu-item-2910" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2910"><a href="http://www.mathistopheles.co.uk/maths/us-electoral-maths-seeing-the-funny-side/">US Electoral Maths – Seeing the funny side</a></li>
+	<li id="menu-item-1822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1822"><a href="http://www.mathistopheles.co.uk/maths/some-very-pointless-maths/">Some very <em>Pointless</em> maths…</a></li>
+	<li id="menu-item-1823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1823"><a href="http://www.mathistopheles.co.uk/maths/some-very-pointless-maths/even-more-pointless-maths/">Even more <em>Pointless</em> Maths</a></li>
+	<li id="menu-item-1824" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-293 current_page_item menu-item-1824"><a href="http://www.mathistopheles.co.uk/maths/a-nice-little-number-theory-problem/">Squares, primes and the numerical stratosphere</a></li>
+	<li id="menu-item-1825" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1825"><a href="http://www.mathistopheles.co.uk/maths/cards-on-the-table/">Cards on the Table</a></li>
+	<li id="menu-item-1826" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1826"><a href="http://www.mathistopheles.co.uk/maths/a-revolutionary-new-equation/">A Revolutionary New Equation</a></li>
+	<li id="menu-item-1827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1827"><a href="http://www.mathistopheles.co.uk/maths/the-electoral-maths-favours-labour-but-by-how-much/">The electoral maths may favour Labour, but by how much…?</a></li>
+	<li id="menu-item-1828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1828"><a href="http://www.mathistopheles.co.uk/maths/covering-all-the-bases/">Covering all the bases</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1829" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1829"><a href="http://www.mathistopheles.co.uk/maths/covering-all-the-bases/solution-covering-all-the-bases/">Solution: Covering all the bases</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1830" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1830"><a href="http://www.mathistopheles.co.uk/maths/diabolical-digits/">Diabolical Digits</a></li>
+	<li id="menu-item-1831" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1831"><a href="http://www.mathistopheles.co.uk/maths/how-much-is-a-set-worth/">How much is a set worth in tennis?</a></li>
+</ul>
+</li>
+<li id="menu-item-1832" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1832"><a href="http://www.mathistopheles.co.uk/the-global-lab/">Podcast: The Global Lab</a></li>
+<li id="menu-item-1842" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1842"><a href="http://www.mathistopheles.co.uk/puzzles/">Puzzles</a>
+<ul class="sub-menu">
+	<li id="menu-item-3941" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3941"><a href="http://www.mathistopheles.co.uk/puzzles/exit-strategy-a-puzzle-game/">Exit Strategy – A Mystery Puzzle Game</a></li>
+	<li id="menu-item-1844" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1844"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-1-the-pirate-puzzle/">Puzzle #1: The Pirate Puzzle</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1845"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-1-the-pirate-puzzle/solution-1-the-pirate-puzzle/">Solution #1: The Pirate Puzzle</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1846"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-2-the-ultimate-tiebreaker/">Puzzle #2: The Ultimate Tiebreaker</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1847" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1847"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-2-the-ultimate-tiebreaker/solution-2-the-ultimate-tiebreaker/">Solution #2: The Ultimate Tiebreaker</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1848"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-3-kidnapped-by-the-mad-hatter/">Puzzle #3: Kidnapped by the Mad Hatter</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1849"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-3-kidnapped-by-the-mad-hatter/solution-3-kidnapped-by-the-mad-hatter/">Solution #3: Kidnapped by the Mad Hatter</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1850" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1850"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-4-hidden-depths/">Puzzle #4: Hidden depths…</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1851" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1851"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-4-hidden-depths/solution-4-hidden-depths/">Solution #4: Hidden depths…</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1852" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1852"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-5-where-wolf/">Puzzle #5: Where Wolf?</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1853" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1853"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-5-where-wolf/solution-5-where-wolf/">Solution #5: Where Wolf?</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1854" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1854"><a href="http://www.mathistopheles.co.uk/puzzles/bonus-puzzle-match-point-mystery/">Puzzle #6: Match Point Mystery</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1855" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1855"><a href="http://www.mathistopheles.co.uk/puzzles/bonus-puzzle-match-point-mystery/solution-match-point-mystery/">Solution #6: Match Point Mystery</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1856" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1856"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-8-gridlock/">Puzzle #7: Gridlock</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1857" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1857"><a href="http://www.mathistopheles.co.uk/puzzles/puzzle-8-gridlock/solution-7-gridlock/">Solution #7: Gridlock</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1843" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1843"><a href="http://www.mathistopheles.co.uk/puzzles/sequence-challenge/">Bonus Puzzle: Sequence Challenge – Mystery Prize</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2064"><a href="http://www.mathistopheles.co.uk/puzzles/sequence-challenge/bonus-puzzle-sequence-challenge-the-solution/">Bonus Puzzle: Sequence Challenge – The Solution</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-1820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1820"><a href="http://www.mathistopheles.co.uk/mathematics/">Research</a></li>
+<li id="menu-item-1819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1819"><a href="http://www.mathistopheles.co.uk/about/">About</a></li>
+<li id="menu-item-3118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3118"><a href="http://www.mathistopheles.co.uk/maths/the-indisputable-santa-mathematical-advent-calendar/">The Indisputable Santa Mathematical Advent Calendar</a></li>
+<li id="menu-item-3761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3761"><a href="http://www.mathistopheles.co.uk/christmas-maths-puzzle-2017/">Christmas Maths Puzzle 2017</a></li>
+</ul></div>		</nav><!-- #site-navigation -->
+
+				<a href="http://www.mathistopheles.co.uk/"><img src="http://mathistopheles.blogweb.casa.ucl.ac.uk/files/2015/09/cropped-Site_Header.png" class="header-image" width="1428" height="372" alt="Mathistopheles" /></a>
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+							
+	<article id="post-293" class="post-293 page type-page status-publish hentry">
+		<header class="entry-header">
+												<h1 class="entry-title">Squares, primes and the numerical stratosphere</h1>
+		</header>
+
+		<div class="entry-content">
+			<p><em>This page concerns an unassuming little maths problem, which I decided to look into for a bit of fun. To my surprise, the question turned out to have an unexpected connection to a famous problem at the cutting edge of number theory, and necessitated a trip off into the numerical stratosphere in search of some fairly large solutions. The maths used here is probably about first year undergraduate level, and the style is certainly more technical than my previous article, so come prepared.</em></p>
+<p>While working on my follow up to the <a title="Some very Pointless maths…" href="http://www.mathistopheles.co.uk/maths/some-very-pointless-maths/"><em>Pointless</em> maths article</a>, I became sidetracked by a nice little conundrum posted on Twitter:</p>
+<blockquote class="twitter-tweet" width="550">
+<p>Can a perfect square ever consist of the same string of digits written out twice (such as in 978978 or 46024602)? cc <a href="https://twitter.com/jamestanton">@jamestanton</a></p>
+<p>&mdash; Matt Enlow (@CmonMattTHINK) <a href="https://twitter.com/CmonMattTHINK/status/540544823598804993">December 4, 2014</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>This is exactly the sort of meaningless mathematical challenge that I enjoy, so let&#8217;s get stuck in.</p>
+<p>Before we start, we need some notation. Let&#8217;s call the number that we are going to square <em>x</em> (we&#8217;re assuming that it&#8217;s a positive integer) and we&#8217;ll say that <em>x</em> has <em>d</em> digits. We want to find <em>x</em> such that <em>x</em><sup>2</sup> is equal to one of the twice-repeated string numbers described in the tweet.</p>
+<p>First, let&#8217;s consider how large we should expect <em>x</em><sup>2</sup> to be, in terms of its number of digits. Since <em>x </em>has <em>d </em>digits, it satisfies the inequalities:</p>
+<p style="text-align: center">10<sup><em>d</em>-1</sup> ≤ <em>x</em> &lt; 10<sup><em>d</em></sup></p>
+<p style="text-align: left">Since (10<sup><em>d</em>-1</sup>)<sup>2</sup> = 10<sup>2<em>d</em>-2</sup>, which is the first integer with 2<em>d</em>-1 digits, and (10<sup><em>d</em></sup>)<sup>2</sup> = 10<sup>2<em>d</em></sup>, which is the first integer with 2<em>d</em>+1 digits, <em>x</em><sup>2</sup> must have 2<em>d</em>-1 or 2<em>d</em> digits. Moreover, if <em>x</em><sup>2</sup> is to have a twice-repeated string of digits, as we wish, then it must have an even number of digits. Therefore, if we are able to find a solution <em>x</em> to our problem with <em>d</em> digits, then <em>x</em><sup>2</sup> will have to have 2<em>d</em> digits. This means that the string that will be repeated will have <em>d</em> digits, the same number as in <em>x</em>.</p>
+<p style="text-align: left">Now let&#8217;s think a little more about these numbers with repeating digits that we are interested in. For example, consider the number 345345. This number can be split up in the following way:</p>
+<p style="text-align: center">345345  =  345<span class="st">×</span>10<sup>3 </sup>+ 345  =  345 (10<sup>3</sup> + 1)</p>
+<p style="text-align: left">Any such twice-repeated string number can be rewritten in this way. If we let <em>z</em> be the complete repeating number and  <em>y </em>be the number formed by the string that is repeated (e.g. <em>z</em> = 345345 and <em>y</em> = 345 in the above example) and if <em>d</em> is the number of digits of <em>y</em>, then we can write:</p>
+<p style="text-align: center"><em>z</em> = <em>y</em> (10<em><sup>d</sup></em> + 1)</p>
+<p style="text-align: left">This allows us to state our original problem symbolically. We wish to find a positive integer <em>x</em>, with <em>d</em> digits, such that:</p>
+<p style="text-align: center"><em>                                                              x</em><sup>2</sup> = <em>y</em> (10<em><sup>d</sup></em> + 1)                                       <strong>[Equation 1]</strong></p>
+<p style="text-align: left">for some positive integer <em>y</em>, which must also have <em>d</em> digits. If we can find such numbers, then we are done, because the left hand side will definitely be a perfect square and the right hand side will definitely be a twice-repeating string number. However, it may turn out that no such numbers exist, in which case we would like to find a rigorous proof that the problem is impossible so that we can all stop worrying about it and sleep easily in our beds.*</p>
+<p style="text-align: left">Let&#8217;s suppose that a solution does exist and try to work out what it would look like. Note in particular that 10<em><sup>d</sup></em> + 1 has <em>d</em> + 1 digits, so it must be larger than <em>x.</em> Hold on to that thought, because in a minute it will prove to be a <strong>crucially important fact</strong>.</p>
+<p style="text-align: left">The <a title="Fundamental Theorem of Arithmetic" href="http://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic" target="_blank">fundamental theorem of arithmetic</a> tells us that every whole number can be expressed as a unique product of primes, so let&#8217;s write 10<em><sup>d</sup></em> + 1 in this way:</p>
+<p style="text-align: center">10<em><sup>d</sup></em> + 1 = <em>p</em><sub>1</sub><sup><em>a</em><sub>1</sub></sup> <em>p</em><sub>2</sub><sup><em>a</em><sub>2</sub></sup> &#8230; <em>p</em><sub><em>n</em></sub><sup><em>a</em><sub><em>n</em></sub></sup></p>
+<p style="text-align: left">Here, <em>p</em><sub>1</sub> , <em>p</em><sub>2</sub> , &#8230; , <em>p</em><sub><em>n</em></sub> are distinct primes, each raised to some positive integer power<br />
+<em>a</em><sub>1</sub> , <em>a</em><sub>2</sub> , &#8230; , <em>a</em><sub><em>n</em></sub> . Incidentally, we know that the smallest of these primes is at least 7, because it is quite easy to show that 10<em><sup>d</sup></em> + 1 is not divisible by 2, 3 or 5.</p>
+<p style="text-align: left">Now, <a title="Euclid's Lemma" href="http://en.wikipedia.org/wiki/Euclid%27s_lemma" target="_blank">Euclid&#8217;s Lemma</a> tells us that if a prime number divides a product of two numbers then it must divide one or both of these numbers. Here then, we have that each of the primes<br />
+<em>p</em><sub>1</sub> , <em>p</em><sub>2</sub> , &#8230; , <em>p</em><sub><em>n</em></sub> divides 10<em><sup>d</sup></em> + 1, and from <strong>Equation 1</strong> we see that 10<em><sup>d</sup></em> + 1 divides <em>x</em><sup>2</sup>. Therefore all of the primes <em>p</em><sub>1</sub> , <em>p</em><sub>2</sub> , &#8230; , <em>p</em><sub><em>n</em></sub> divide <em>x</em><sup>2</sup>, which is the product of <em>x</em> and <em>x</em>. Therefore, all of the primes <em>p</em><sub>1</sub> , <em>p</em><sub>2</sub> , &#8230; , <em>p</em><sub><em>n</em></sub> divide <em>x</em>, so <em>x</em> = <em>w</em> <em>p</em><sub>1</sub> <em>p</em><sub>2</sub> &#8230; <em>p</em><sub><em>n</em></sub> for some positive integer <em>w</em>.</p>
+<p style="text-align: left">Suppose for a moment that every one of these primes appeared only once in the prime factorisation of 10<em><sup>d</sup></em> + 1. In other words, <em>a</em><sub>1</sub> = <em>a</em><sub>2</sub> = &#8230; = <em>a</em><sub><em>n</em></sub> = 1 and we can write<br />
+10<em><sup>d</sup></em> + 1 = <em>p</em><sub>1</sub> <em>p</em><sub>2</sub> &#8230; <em>p</em><sub><em>n</em></sub> . This would mean that <em>x</em> = <em>w</em> (10<em><sup>d</sup></em> + 1), but since <em>w</em> is positive, this implies that <em>x</em> ≥ 10<em><sup>d</sup></em> + 1. However, the <strong>crucially important fact</strong> that we flagged up earlier told us that actually 10<em><sup>d</sup></em> + 1 &gt; <em>x</em>. We therefore have a contradiction and so, if we have a solution, at least one of the primes in the factorisation of 10<em><sup>d</sup></em> + 1 must appear twice or more.</p>
+<p style="text-align: left">At this point, we can take a breather from the heavy analysis to investigate some actual numbers of the form 10<em><sup>d</sup></em> + 1, to see what their prime factorisations actually look like. These numbers are simply those that start and end with a 1, with 0s in between. Here are the first few of them, with their prime factorisations (which I got from <a title="Factoring Calculator" href="http://www.solvemymath.com/online_math_calculator/general_math/factoring_calculator/factoring.php" target="_blank">here</a>):</p>
+<ul>
+<li style="text-align: left">10<sup>1</sup> + 1 = 11 <strong>(prime)</strong></li>
+<li style="text-align: left">10<sup>2</sup> + 1 = 101 <strong>(prime)</strong></li>
+<li style="text-align: left">10<sup>3</sup> + 1 = 1001 = 7 <span class="st">×</span> 11 <span class="st">×</span> 13</li>
+<li style="text-align: left"><span class="st">10<sup>4</sup> + 1 = 10001 = 73 <span class="st">×</span> 137</span></li>
+<li style="text-align: left"><span class="st">10<sup>5</sup> + 1 = 100001 = 11 × 9091</span></li>
+<li style="text-align: left"><span class="st">10<sup>6</sup> + 1 = 1000001 =101 × 9901<br />
+</span></li>
+<li style="text-align: left"><span class="st">10<sup>7</sup> + 1 = 10000001 =11 × 909091<br />
+</span></li>
+<li style="text-align: left"><span class="st">10<sup>8</sup> + 1 = 100000001 =17 × 5882353<br />
+</span></li>
+<li style="text-align: left"><span class="st">10<sup>9</sup> + 1 = 1000000001 = 7 × 11 × 13 × 19 × 52579<br />
+</span></li>
+<li style="text-align: left"><span class="st">10<sup>10</sup> + 1 = 10000000001 = 101 × 3541 × 27961<br />
+</span></li>
+<li style="text-align: left"><span class="st">10<sup>11</sup> + 1 = 100000000001 = <strong>11<sup>2</sup></strong> × 23 × 4093 × 8779<br />
+</span></li>
+</ul>
+<p>Finally, we have arrived at a number of the form 10<em><sup>d</sup></em> + 1 with a repeated prime factor, which is what we were looking for. I am quite surprised that it took so long, and it would be interesting to know whether there is a particular reason why these numbers seem to have so few repeated prime factors. Things don&#8217;t get any better in this respect either, since you have to wait until<br />
+10<span class="st"><sup>21</sup> + 1 = 1000000000000000000001 = <strong>7<sup>2</sup></strong> × 11 × 13 × 127 × 2689 × 459691 × 909091 for the next one.**</span></p>
+<p>Anyway, the repeated factor of 11 in <span class="st">10<sup>11</sup> + 1 gives us hope, since it suggests that we might be able to find some 11 digit solutions for <em>x</em>. We know that such an <em>x</em> must be divisible by all the distinct prime factors of 10<sup>11</sup> + 1, so <em>x</em> will have to be a multiple of 11 × 23 × 4093 × 8779, which is equal to 9090909091. The first few multiples of this number provide us with the following &#8220;near misses&#8221;:</span></p>
+<ul>
+<li><span class="st">9090909091<span class="st"><sup>2</sup></span></span> = <span style="text-decoration: underline"><strong>826446281</strong></span>00<strong>826446281</strong></li>
+<li><span class="st">18181818182<sup>2</sup></span> = <span style="text-decoration: underline"><strong>3305785124</strong></span>0<strong>3305785124</strong></li>
+<li>27272727273<span class="st"><sup>2</sup></span> = <span style="text-decoration: underline"><strong>7438016529</strong></span>0<strong>7438016529</strong></li>
+</ul>
+<p>Note that t<span class="st">hese examples fail because the corresponding value of <em>y</em> (from <strong>Equation 1</strong>), the string of repeated numbers, has fewer than 11 digits, rendering our analysis invalid. </span>However, the next seven multiples of <span class="st">9090909091</span> all provide solutions to our problem:</p>
+<ul>
+<li>36363636364<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">13223140496</span>13223140496</strong></li>
+<li>45454545455<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">20661157025</span>20661157025</strong></li>
+<li>54545454546<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">29752066116</span>29752066116</strong></li>
+<li>63636363637<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">40495867769</span>40495867769</strong></li>
+<li>72727272728<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">52892561984</span>52892561984</strong></li>
+<li>81818181819<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">66942148761</span>66942148761</strong></li>
+<li><span class="st">90909090910<sup>2</sup></span> = <strong><span style="text-decoration: underline">82644628100</span>82644628100</strong></li>
+</ul>
+<p>At this point, we run out of 11 digit solutions, as <em>x</em> and the corresponding <em>y</em> both tip over into twelve digits (in fact both <em>x</em> and <em>y</em> become equal to <span class="st">10<sup>11</sup> + 1</span>) and our method stops working:</p>
+<ul>
+<li>100000000001<span class="st"><sup>2</sup></span> = 10000000000200000000001</li>
+</ul>
+<div id="attachment_753" style="width: 574px" class="wp-caption aligncenter"><a href="http://www.mathistopheles.co.uk/files/2014/12/Slide14.png"><img class="wp-image-753 " src="http://www.mathistopheles.co.uk/files/2014/12/Slide14.png" alt="Slide1" width="564" height="201" srcset="http://www.mathistopheles.co.uk/files/2014/12/Slide14.png 1440w, http://www.mathistopheles.co.uk/files/2014/12/Slide14-300x107.png 300w, http://www.mathistopheles.co.uk/files/2014/12/Slide14-1024x366.png 1024w, http://www.mathistopheles.co.uk/files/2014/12/Slide14-624x223.png 624w" sizes="(max-width: 564px) 100vw, 564px" /></a><p class="wp-caption-text">The smallest square whose digits consist of the same string, repeated twice.</p></div>
+<p>As we have already mentioned, we have to wait a long time for the next solutions to turn up, some 21-digit monsters. They are all multiples of 142857142857142857143, a number which rather beautifully contains three (and a bit) repetitions of the recurring part of the decimal expansion of 1/7 (looking back at our earlier solutions, they were clearly related to the decimal expansion of 1/11). This time there are only four solutions before the method breaks down, but they are rather lovely ones, borrowing the property of the decimal expansion of 1/7, whereby they are all (sort of) translated versions of one another (with the exception of the final digit in each case):</p>
+<ul>
+<li>428571428571428571429<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">183673469387755102041</span>183673469387755102041</strong></li>
+<li>571428571428571428572<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">326530612244897959184</span>326530612244897959184</strong></li>
+<li>714285714285714285715<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">510204081632653061225</span>510204081632653061225</strong></li>
+<li>857142857142857142858<span class="st"><sup>2</sup></span> = <strong><span style="text-decoration: underline">734693877551020408164</span>734693877551020408164</strong></li>
+</ul>
+<p>Given how we derived these numbers, it is not too surprising that they are related to the decimal expansion of 1/7, since the number 142857142857142857143, of which these solutions are multiples, was derived by dividing the excess factor of 7 out of <span class="st">1000000000000000000001. Nevertheless, it is quite an attractive and striking observation</span><span class="st">.</span></p>
+<p>It would be interesting to look into these solutions and how frequently they occur in more depth, but, given that they seem to be tied in with a particularly mysterious unsolved*** problem in number theory (see the footnotes), I think pursuing this any further would likely drive me completely mad. Aside from anything else, there are practical difficulties when working with such big numbers. I looked for solutions with up to 29 digits, by checking the factorisations of 10<em><sup>d</sup></em> + 1 for repeated primes, but the <a title="Online Factoring Calculator" href="http://www.solvemymath.com/online_math_calculator/general_math/factoring_calculator/factoring.php" target="_blank">online factoring calculator</a> couldn&#8217;t go any higher than that. I believe, therefore, that the <strong>eleven solutions</strong> on this page (seven with 11 digits, four with 21 digits) are the only solutions for which the number to be squared is less than 10<sup>29 </sup>(one hundred thousand trillion trillion, or one hundred<strong> </strong>octillion). That means that there are only eleven perfect squares consisting of a twice repeated string of digits that are smaller than 10<sup>58</sup>.</p>
+<p>Let&#8217;s just finish by marvelling at the size of this number. There are <em>only eleven</em> perfect squares of this kind that are less than:</p>
+<p style="text-align: center"><strong>10000000000000000000000000000000000000000000000000000000000</strong><br />
+or<br />
+<strong> ten billion trillion trillion trillion trillion</strong><br />
+or<strong><br />
+ten octodecillion</strong></p>
+<p>Nice problem.</p>
+<hr />
+<p><strong>UPDATE (04/2015): </strong>Using <a title="Wolfram Alpha" href="http://www.wolframalpha.com/input/?i=factorise+%2810%5E63%2B1%29" target="_blank">Wolfram Alpha</a> and the <a title="Number Empire - Number Factoriser" href="http://www.numberempire.com/numberfactorizer.php" target="_blank">Number Empire online factoriser</a>, I was able to extend the search up to 126 digit squares, revealing further families of solutions, including:</p>
+<p>Seven 66 digit squares:</p>
+<ul>
+<li>363636363636363636363636363636364<sup>2</sup> = <strong><span style="text-decoration: underline">132231404958677685950413223140496</span>132231404958677685950413223140496</strong></li>
+<li>454545454545454545454545454545455<sup>2</sup> = <strong><span style="text-decoration: underline">206611570247933884297520661157025</span>206611570247933884297520661157025</strong></li>
+<li>545454545454545454545454545454546<sup>2</sup> = <strong><span style="text-decoration: underline">297520661157024793388429752066116</span>297520661157024793388429752066116</strong></li>
+<li>636363636363636363636363636363637<sup>2</sup> = <strong><span style="text-decoration: underline">404958677685950413223140495867769</span>404958677685950413223140495867769</strong></li>
+<li>727272727272727272727272727272728<sup>2</sup> = <strong><span style="text-decoration: underline">528925619834710743801652892561984</span>528925619834710743801652892561984</strong></li>
+<li>818181818181818181818181818181819<sup>2</sup> = <strong><span style="text-decoration: underline">669421487603305785123966942148761</span>669421487603305785123966942148761</strong></li>
+<li>909090909090909090909090909090910<sup>2</sup> = <strong><span style="text-decoration: underline">826446280991735537190082644628100</span>826446280991735537190082644628100</strong></li>
+</ul>
+<p>Eight 78 digit squares:</p>
+<ul>
+<li>384615384615384615384615384615384615385<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">147928994082840236686390532544378698225</span>147928994082840236686390532544378698225</span></strong></li>
+<li>461538461538461538461538461538461538462<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">213017751479289940828402366863905325444</span>213017751479289940828402366863905325444</span></strong></li>
+<li>538461538461538461538461538461538461539<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">289940828402366863905325443786982248521</span>289940828402366863905325443786982248521</span></strong></li>
+<li>615384615384615384615384615384615384616<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">378698224852071005917159763313609467456</span>378698224852071005917159763313609467456</span></strong></li>
+<li>692307692307692307692307692307692307693<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">479289940828402366863905325443786982249</span>479289940828402366863905325443786982249</span></strong></li>
+<li>769230769230769230769230769230769230770<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">591715976331360946745562130177514792900</span>591715976331360946745562130177514792900</span></strong></li>
+<li>846153846153846153846153846153846153847<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">715976331360946745562130177514792899409</span>715976331360946745562130177514792899409</span></strong></li>
+<li>923076923076923076923076923076923076924<sup>2</sup> = <strong><span style="font-size: small"><span style="text-decoration: underline">852071005917159763313609467455621301776</span>852071005917159763313609467455621301776</span></strong></li>
+</ul>
+<p style="text-align: left">There are a further seven 110 digit solutions and four 126 digit solutions, but let&#8217;s draw the line at 100 digits. Attempts to find even larger squares were thwarted by an inability to factorise 10<sup>64</sup> + 1 (and by the fact that you have to stop somewhere!).</p>
+<p>Together with the eleven solutions that we had already found, this allows to replace our earlier conclusion with the eminently more satisfying statement:<br />
+&nbsp;</p>
+<h3 style="text-align: center"><span style="color: #800080"><strong>There are only <em>twenty-six</em> perfect squares of this kind smaller than a <span style="color: #0000ff"><a style="color: #0000ff" title="Wikipedia - Googol" href="http://en.wikipedia.org/wiki/Googol" target="_blank">googol</a></span>.</strong></span></h3>
+<p>&nbsp;</p>
+<hr />
+<p style="text-align: left">* If we are really unlucky, it may turn out to be impossible to find a solution <em>and</em> impossible to prove that no solution exists (see <a title="Godel's Incompleteness Theorems" href="http://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems" target="_blank">Gödel&#8217;s Incompleteness Theorems</a>), but we would have had to have kicked a lot of black cats under a lot of ladders to fall prey to that one.</p>
+<p style="text-align: left">** Fascinatingly, I think that the reason that so few numbers of the form 10<em><sup>d</sup></em> + 1 seem to have repeated prime factors and, consequently, why there are so few solutions to this problem (or that the solutions are so very sparsely distributed, at any rate) may have something to do with <a title="abc Conjecture" href="http://en.wikipedia.org/wiki/Abc_conjecture" target="_blank">the abc conjecture</a>, which I was aware of, but had never actually bumped into &#8216;in the wild&#8217; before.</p>
+<p style="text-align: left">Very loosely (and I&#8217;m no expert on this), the abc conjecture says that, given coprime positive integers <em>a</em>, <em>b</em>, <em>c</em>, such that <em>a</em> + <em>b</em> = <em>c </em>, <em>c</em> tends not to exceed the product of all the distinct prime factors of <em>a</em>, <em>b</em>, <em>c</em> by too much (in the sense that there are only a finite number of triples <em>a</em>, <em>b</em>, <em>c</em> for which <em>c</em> exceeds this product by a certain degree). As I understand it, this (sort of) has the effect of preventing the prime factors of <em>c</em> from being raised to high powers in its prime decomposition, since this would illegally push up <em>c</em> relative to the aforementioned product.</p>
+<p style="text-align: left">The expression 10<em><sup>d</sup></em> + 1 = <em>C</em> appears to be an example of the abc conjecture in action. The three terms are certainly coprime and as <em>d</em> increases, so does <em>C</em>. The effect, based on the abc conjecture, seems to be that the powers of the primes in the factorisation of <em>C</em> must remain low, to prevent <em>C</em> from excessively exceeding the product of its distinct prime factors with the 2 and 5 from the 10<em><sup>d</sup></em> term.</p>
+<p style="text-align: left">I certainly had no idea when I was starting out that the problem would be related to this result, so I really find this quite amazing!</p>
+<p style="text-align: left">*** Unless you are an expert in <a title="Inter-universal Teichmuller Theory" href="http://en.wikipedia.org/wiki/Inter-universal_Teichm%C3%BCller_theory" target="_blank">Inter-universal Teichmüller Theory</a> of course.</p>
+<hr />
+<p style="text-align: left">Thomas Oléron Evans, 2014</p>
+<hr />
+<p>Click <a title="Some very Pointless maths…" href="http://www.mathistopheles.co.uk/maths/some-very-pointless-maths/">here</a> for the previous page in the <a title="Maths" href="http://www.mathistopheles.co.uk/maths/">Maths</a> section.<br />
+Click <a title="Cards on the Table" href="http://www.mathistopheles.co.uk/maths/cards-on-the-table/">here</a> for the next page in the <a title="Maths" href="http://www.mathistopheles.co.uk/maths/">Maths</a> section.</p>
+					</div><!-- .entry-content -->
+		<footer class="entry-meta">
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+				
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			One thought on &ldquo;<span>Squares, primes and the numerical stratosphere</span>&rdquo;		</h2>
+
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-12">
+		<article id="comment-12" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='http://0.gravatar.com/avatar/6f09c5674c6cef81cd78af80552a537f?s=44&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/6f09c5674c6cef81cd78af80552a537f?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' /><cite><b class="fn">Matt E</b> </cite><a href="http://www.mathistopheles.co.uk/maths/a-nice-little-number-theory-problem/#comment-12"><time datetime="2014-12-05T02:58:31+00:00">December 5, 2014 at 02:58</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>So glad you derived so much fun from this problem! Cheers!</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='http://www.mathistopheles.co.uk/maths/a-nice-little-number-theory-problem/?replytocom=12#respond' onclick='return addComment.moveForm( "comment-12", "12", "respond", "293" )' aria-label='Reply to Matt E'>Reply</a> <span>&darr;</span>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+		
+		
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/maths/a-nice-little-number-theory-problem/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://www.mathistopheles.co.uk/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='293' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0dc500c100" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="1"/></p>			</form>
+			</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://www.mathistopheles.co.uk/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><ul class='wp-tag-cloud' role='list'>
+	<li><a href="http://www.mathistopheles.co.uk/tag/advent-calendar/" class="tag-cloud-link tag-link-125 tag-link-position-1" style="font-size: 18.144927536232pt;" aria-label="advent calendar (29 items)">advent calendar</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/algebra/" class="tag-cloud-link tag-link-61 tag-link-position-2" style="font-size: 10.231884057971pt;" aria-label="Algebra (4 items)">Algebra</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/audio/" class="tag-cloud-link tag-link-35 tag-link-position-3" style="font-size: 16.521739130435pt;" aria-label="Audio (20 items)">Audio</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/audio-drama/" class="tag-cloud-link tag-link-4 tag-link-position-4" style="font-size: 12.768115942029pt;" aria-label="Audio Drama (8 items)">Audio Drama</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/averages/" class="tag-cloud-link tag-link-65 tag-link-position-5" style="font-size: 9.2173913043478pt;" aria-label="Averages (3 items)">Averages</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/beautiful/" class="tag-cloud-link tag-link-19 tag-link-position-6" style="font-size: 10.231884057971pt;" aria-label="Beautiful (4 items)">Beautiful</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/book/" class="tag-cloud-link tag-link-82 tag-link-position-7" style="font-size: 10.231884057971pt;" aria-label="Book (4 items)">Book</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/chessboard-puzzles/" class="tag-cloud-link tag-link-131 tag-link-position-8" style="font-size: 9.2173913043478pt;" aria-label="chessboard puzzles (3 items)">chessboard puzzles</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/christmas/" class="tag-cloud-link tag-link-46 tag-link-position-9" style="font-size: 18.753623188406pt;" aria-label="Christmas (34 items)">Christmas</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/christmaths/" class="tag-cloud-link tag-link-127 tag-link-position-10" style="font-size: 18.652173913043pt;" aria-label="Christmaths (33 items)">Christmaths</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/election/" class="tag-cloud-link tag-link-18 tag-link-position-11" style="font-size: 12.260869565217pt;" aria-label="Election (7 items)">Election</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/factorial/" class="tag-cloud-link tag-link-21 tag-link-position-12" style="font-size: 9.2173913043478pt;" aria-label="Factorial (3 items)">Factorial</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/fractals/" class="tag-cloud-link tag-link-20 tag-link-position-13" style="font-size: 8pt;" aria-label="Fractals (2 items)">Fractals</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/ge2015/" class="tag-cloud-link tag-link-25 tag-link-position-14" style="font-size: 11.04347826087pt;" aria-label="GE2015 (5 items)">GE2015</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/global-lab/" class="tag-cloud-link tag-link-74 tag-link-position-15" style="font-size: 12.260869565217pt;" aria-label="Global Lab (7 items)">Global Lab</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/hat-puzzle/" class="tag-cloud-link tag-link-41 tag-link-position-16" style="font-size: 9.2173913043478pt;" aria-label="Hat Puzzle (3 items)">Hat Puzzle</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/interview/" class="tag-cloud-link tag-link-36 tag-link-position-17" style="font-size: 15.608695652174pt;" aria-label="Interview (16 items)">Interview</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/joke/" class="tag-cloud-link tag-link-15 tag-link-position-18" style="font-size: 9.2173913043478pt;" aria-label="Joke (3 items)">Joke</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/little-written/" class="tag-cloud-link tag-link-95 tag-link-position-19" style="font-size: 12.768115942029pt;" aria-label="Little Written (8 items)">Little Written</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/logic/" class="tag-cloud-link tag-link-12 tag-link-position-20" style="font-size: 12.768115942029pt;" aria-label="Logic (8 items)">Logic</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/maps/" class="tag-cloud-link tag-link-39 tag-link-position-21" style="font-size: 9.2173913043478pt;" aria-label="Maps (3 items)">Maps</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/markov-chains/" class="tag-cloud-link tag-link-45 tag-link-position-22" style="font-size: 10.231884057971pt;" aria-label="Markov Chains (4 items)">Markov Chains</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/maths/" class="tag-cloud-link tag-link-73 tag-link-position-23" style="font-size: 22pt;" aria-label="Maths (71 items)">Maths</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/maths-tweet/" class="tag-cloud-link tag-link-23 tag-link-position-24" style="font-size: 13.68115942029pt;" aria-label="Maths Tweet (10 items)">Maths Tweet</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/number-theory/" class="tag-cloud-link tag-link-48 tag-link-position-25" style="font-size: 9.2173913043478pt;" aria-label="Number Theory (3 items)">Number Theory</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/page-to-stage-festival/" class="tag-cloud-link tag-link-98 tag-link-position-26" style="font-size: 13.68115942029pt;" aria-label="Page to Stage Festival (10 items)">Page to Stage Festival</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/play/" class="tag-cloud-link tag-link-47 tag-link-position-27" style="font-size: 14.391304347826pt;" aria-label="Play (12 items)">Play</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/podcast/" class="tag-cloud-link tag-link-37 tag-link-position-28" style="font-size: 15.304347826087pt;" aria-label="Podcast (15 items)">Podcast</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/pointless/" class="tag-cloud-link tag-link-6 tag-link-position-29" style="font-size: 8pt;" aria-label="Pointless (2 items)">Pointless</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/politics/" class="tag-cloud-link tag-link-24 tag-link-position-30" style="font-size: 11.753623188406pt;" aria-label="Politics (6 items)">Politics</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/probability/" class="tag-cloud-link tag-link-28 tag-link-position-31" style="font-size: 10.231884057971pt;" aria-label="Probability (4 items)">Probability</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/puzzle/" class="tag-cloud-link tag-link-13 tag-link-position-32" style="font-size: 20.68115942029pt;" aria-label="Puzzle (53 items)">Puzzle</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/puzzles/" class="tag-cloud-link tag-link-75 tag-link-position-33" style="font-size: 17.434782608696pt;" aria-label="Puzzles (25 items)">Puzzles</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/research/" class="tag-cloud-link tag-link-9 tag-link-position-34" style="font-size: 8pt;" aria-label="Research (2 items)">Research</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/review/" class="tag-cloud-link tag-link-55 tag-link-position-35" style="font-size: 9.2173913043478pt;" aria-label="Review (3 items)">Review</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/science-communication/" class="tag-cloud-link tag-link-53 tag-link-position-36" style="font-size: 13.275362318841pt;" aria-label="Science Communication (9 items)">Science Communication</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/sequence/" class="tag-cloud-link tag-link-26 tag-link-position-37" style="font-size: 12.768115942029pt;" aria-label="Sequence (8 items)">Sequence</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/solution/" class="tag-cloud-link tag-link-40 tag-link-position-38" style="font-size: 14.797101449275pt;" aria-label="Solution (13 items)">Solution</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/teaching/" class="tag-cloud-link tag-link-57 tag-link-position-39" style="font-size: 9.2173913043478pt;" aria-label="Teaching (3 items)">Teaching</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/tennis/" class="tag-cloud-link tag-link-62 tag-link-position-40" style="font-size: 11.04347826087pt;" aria-label="Tennis (5 items)">Tennis</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/theatre/" class="tag-cloud-link tag-link-94 tag-link-position-41" style="font-size: 15.101449275362pt;" aria-label="theatre (14 items)">theatre</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/the-indisputable-existence-of-santa-claus/" class="tag-cloud-link tag-link-118 tag-link-position-42" style="font-size: 18.652173913043pt;" aria-label="The Indisputable Existence of Santa Claus (33 items)">The Indisputable Existence of Santa Claus</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/video/" class="tag-cloud-link tag-link-29 tag-link-position-43" style="font-size: 10.231884057971pt;" aria-label="Video (4 items)">Video</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/writing/" class="tag-cloud-link tag-link-72 tag-link-position-44" style="font-size: 17.942028985507pt;" aria-label="Writing (28 items)">Writing</a></li>
+	<li><a href="http://www.mathistopheles.co.uk/tag/writing-blog/" class="tag-cloud-link tag-link-69 tag-link-position-45" style="font-size: 14.086956521739pt;" aria-label="writing blog (11 items)">writing blog</a></li>
+</ul>
+</div>
+</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-17"><a href="http://www.mathistopheles.co.uk/category/election/" >Election</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.mathistopheles.co.uk/category/global-lab/" >Global Lab</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.mathistopheles.co.uk/category/joke/" >Joke</a>
+</li>
+	<li class="cat-item cat-item-91"><a href="http://www.mathistopheles.co.uk/category/little-written-podcast/" >Little Written Podcast</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.mathistopheles.co.uk/category/maths/" >Maths</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.mathistopheles.co.uk/category/other/" >Other</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.mathistopheles.co.uk/category/puzzles/" >Puzzles</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.mathistopheles.co.uk/category/research/" >Research</a>
+</li>
+	<li class="cat-item cat-item-80"><a href="http://www.mathistopheles.co.uk/category/reviews/" >Reviews</a>
+</li>
+	<li class="cat-item cat-item-84"><a href="http://www.mathistopheles.co.uk/category/television/" >Television</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.mathistopheles.co.uk/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.mathistopheles.co.uk/category/writing/" >Writing</a>
+</li>
+		</ul>
+</aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href='http://www.mathistopheles.co.uk/2018/09/'>September 2018</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2017/12/'>December 2017</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2017/11/'>November 2017</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2017/01/'>January 2017</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/12/'>December 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/11/'>November 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/09/'>September 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/08/'>August 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/05/'>May 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/04/'>April 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/03/'>March 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/02/'>February 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2016/01/'>January 2016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/12/'>December 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/11/'>November 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/10/'>October 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/09/'>September 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/08/'>August 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/07/'>July 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/06/'>June 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/05/'>May 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/04/'>April 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2015/03/'>March 2015</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2014/12/'>December 2014</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/2014/11/'>November 2014</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/1016/03/'>March 1016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/1016/02/'>February 1016</a></li>
+	<li><a href='http://www.mathistopheles.co.uk/1016/01/'>January 1016</a></li>
+		</ul>
+		</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+									<a href="https://wordpress.org/" class="imprint" title="Semantic Personal Publishing Platform">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='http://www.mathistopheles.co.uk/wp-includes/js/comment-reply.min.js?ver=5.0.3'></script>
+<script type='text/javascript' src='http://www.mathistopheles.co.uk/wp-content/themes/twentytwelve/js/navigation.js?ver=20140711'></script>
+<script type='text/javascript' src='http://www.mathistopheles.co.uk/wp-includes/js/wp-embed.min.js?ver=5.0.3'></script>
+<script async="async" type='text/javascript' src='http://www.mathistopheles.co.uk/wp-content/plugins/akismet/_inc/form.js?ver=4.1'></script>
+</body>
+</html>
