@@ -39,7 +39,7 @@ Trivial one!
 **Lemma 1**
 An odd abab number n, can be factorized in form of: n = c*c, or n = c*c*c*c, or n = c^i, where i is an even number.
 
-The prove is wtote in a file called (whatever)note.pdf, in same folder.
+The prove is in Note_on_abab_number_issue.pdf, in same folder.
 
 Knowing that, you will know we should start at finding n which is also a square number. 
 
